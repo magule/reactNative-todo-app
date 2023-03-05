@@ -1,9 +1,14 @@
 import React, {useState} from 'react';
 import { KeyboardAvoidingView, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, ScrollView } from 'react-native';
 import Task from './components/Task';
+import dayjs from 'dayjs';
+import { green } from 'chalk';
+
 
 {/* remember states used for the things that changes often, so when u write the task it will be stored in the task(const arrayinin ilki) sonra bir array e aktaricaz onu tum taskleri.. */}
 export default function App() {
+
+ 
 
   const [task, setTask] = useState();
 
@@ -42,8 +47,8 @@ export default function App() {
 
       {/* tasks headline */}
       <View style={styles.tasksWrapper}>
-        <Text style={styles.sectionTitle}>Gorevler</Text>
-        <Text style={styles.sectionDate}>Bugun: </Text>
+        <Text style={styles.sectionTitle}>Today</Text>
+        <Text style={styles.sectionDate}>{dayjs().format("dddd, MMMM DD")} </Text>
 
         
         <View style={styles.items}>
@@ -67,10 +72,10 @@ export default function App() {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.writeTaskWrapper}
       >
-        <TextInput style={styles.input} placeholder={'Buraya yaz'} value={task} onChangeText={text => setTask(text)} />
+        <TextInput style={styles.input} placeholder={'Write here...'} value={task} onChangeText={text => setTask(text)} />
         <TouchableOpacity onPress={() => handleAddTask()}>
           <View style={styles.addWrapper}>
-            <Text style={styles.addText}>+</Text>
+            <Text>+</Text>
           </View>
         </TouchableOpacity>
       </KeyboardAvoidingView>
@@ -94,7 +99,7 @@ const styles = StyleSheet.create({
       marginLeft: 10,
     },
     sectionDate:{
-      fontsize: 12,
+      fontSize: 12,
       fontWeight: "bold",
       marginLeft: 10,
       marginTop: 5,
@@ -130,6 +135,5 @@ const styles = StyleSheet.create({
       borderWidth: 1,
 
     },
-    addText: {},
     
 });

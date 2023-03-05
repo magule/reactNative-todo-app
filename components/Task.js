@@ -5,7 +5,7 @@ const Task = (props) => {
     return(
         <View style={styles.item}>
             <View style={styles.itemLeft}>
-                <TouchableOpacity style={styles.square}></TouchableOpacity>
+                <TouchableOpacity style={styles.circle}></TouchableOpacity>
                 <Text style={styles.itemText}>{props.text}</Text>
             </View>
         </View>
@@ -29,15 +29,16 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
 
     },
-    square:{
+    circle:{
         width: 24,
         height: 24,
-        backgroundColor: '#1DA1F2',
-        borderRadius: 5,
+        backgroundColor: 'white',
+        borderRadius: 15,
         marginRight: 15,
+        borderWidth: 1,
     },
     itemText:{
-        maxWidth: "80%",
+        maxWidth: "90%",
     },
     
 });
