@@ -14,7 +14,6 @@ export default function App() {
   {/* will log the task that we stored in the state.*/}
   const [taskItems, setTaskItems] = useState([]);
 
-  var date = new Date().toLocaleString()
 
   const handleAddTask = () => {
     Keyboard.dismiss();
@@ -44,7 +43,7 @@ export default function App() {
       {/* tasks headline */}
       <View style={styles.tasksWrapper}>
         <Text style={styles.sectionTitle}>Gorevler</Text>
-        <Text style={styles.sectionDate}>Bugun: {date}</Text>
+        <Text style={styles.sectionDate}>Bugun: </Text>
 
         
         <View style={styles.items}>
